@@ -1,9 +1,10 @@
 const net = require("net");
+const { IP, PORT } = require("./constants");
 
-const connect = function () {
+const connect = function() {
   const conn = net.createConnection({
-    host: '165.227.47.243',// IP address here,
-    port: 50541 // PORT number here,
+    host: IP,
+    port: PORT,
   });
 
   // interpret incoming data as text
@@ -12,7 +13,7 @@ const connect = function () {
   conn.on("connect", () => {
     // code that does something when the connection is first established
     console.log('Successfully connected to game server');
-    conn.write("Name: Jacqline")
+    conn.write("Name: Jacqline");
   });
 
   conn.on("data", (data) => {
@@ -23,30 +24,30 @@ const connect = function () {
   //   conn.write("Move: up");
   // }, 1000);
 
-  setTimeout(() => {
-    conn.write("Move: down");
-  }, 1500);
+  // setTimeout(() => {
+  //   conn.write("Move: down");
+  // }, 1500);
 
-  setTimeout(() => {
-    conn.write("Move: left");
-  }, 2000);
+  // setTimeout(() => {
+  //   conn.write("Move: left");
+  // }, 2000);
 
-  setTimeout(() => {
-    conn.write("Move: right");
-  }, 2500);
+  // setTimeout(() => {
+  //   conn.write("Move: right");
+  // }, 2500);
 
-  setTimeout(() => {
-    conn.write("Move: up");
-  }, 3000);
+  // setTimeout(() => {
+  //   conn.write("Move: up");
+  // }, 3000);
 
-  setTimeout(() => {
-    conn.write("Move: left");
-  }, 3500);
+  // setTimeout(() => {
+  //   conn.write("Move: left");
+  // }, 3500);
 
 
   return conn;
 };
 
 module.exports = {
-  connect,
+  connect
 };

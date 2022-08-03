@@ -6,6 +6,7 @@ const handleUserInput = function(key) {
   if (key === 's') {
     connection.write("Move: down");
   }
+  
   if (key === 'w') {
     connection.write("Move: up");
   }
@@ -14,6 +15,10 @@ const handleUserInput = function(key) {
   }
   if (key === 'd') {
     connection.write("Move: right");
+  }
+  
+  if (key === 'r') {
+    connection.write("Say: weewoooooo");
   }
   if (key === '\u0003') {
     process.exit(); // terminate the program
@@ -26,7 +31,7 @@ const setupInput = (conn)=> {
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
-  stdin.on("data", handleUserInput);
+  stdin.on("data", (key) => handleUserInput(key));
   return stdin;
 };
 
