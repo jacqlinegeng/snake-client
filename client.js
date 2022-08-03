@@ -13,7 +13,7 @@ const connect = function() {
   conn.on("connect", () => {
     // code that does something when the connection is first established
     console.log('Successfully connected to game server');
-    conn.write("Name: Jacqline");
+    conn.write("Name: jaq");
   });
 
   conn.on("data", (data) => {
@@ -24,25 +24,25 @@ const connect = function() {
   //   conn.write("Move: up");
   // }, 1000);
 
-  // setTimeout(() => {
-  //   conn.write("Move: down");
-  // }, 1500);
+  setTimeout(() => {
+    conn.write("Move: down");
+  }, 1500);
 
-  // setTimeout(() => {
-  //   conn.write("Move: left");
-  // }, 2000);
+  setTimeout(() => {
+    conn.write("Move: left");
+  }, 2000);
 
-  // setTimeout(() => {
-  //   conn.write("Move: right");
-  // }, 2500);
+  setTimeout(() => {
+    conn.write("Move: right");
+  }, 2500);
 
-  // setTimeout(() => {
-  //   conn.write("Move: up");
-  // }, 3000);
+  setTimeout(() => {
+    conn.write("Move: up");
+  }, 3000);
 
-  // setTimeout(() => {
-  //   conn.write("Move: left");
-  // }, 3500);
+  setTimeout(() => {
+    conn.write("Move: left");
+  }, 3500);
 
 
   return conn;

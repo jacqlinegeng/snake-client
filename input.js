@@ -1,28 +1,16 @@
 let connection;
+const { MOVEMENT_KEY } = require('./constants');
 
 const handleUserInput = function(key) {
   // your code here
   console.log(key);
-  if (key === 's') {
-    connection.write("Move: down");
-  }
-  
-  if (key === 'w') {
-    connection.write("Move: up");
-  }
-  if (key === 'a') {
-    connection.write("Move: left");
-  }
-  if (key === 'd') {
-    connection.write("Move: right");
-  }
-  
-  if (key === 'r') {
-    connection.write("Say: weewoooooo");
-  }
+
   if (key === '\u0003') {
+    console.log("thanks for playing");
     process.exit(); // terminate the program
   }
+
+  connection.write(MOVEMENT_KEY[key]);
 };
 
 const setupInput = (conn)=> {
@@ -31,7 +19,7 @@ const setupInput = (conn)=> {
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
-  stdin.on("data", (key) => handleUserInput(key));
+  stdin.on("data", handleUserInput);
   return stdin;
 };
 
